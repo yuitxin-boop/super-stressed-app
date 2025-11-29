@@ -304,7 +304,7 @@
 
   .checklist-item {
     flex: 1 1 100%;      /* full width items on small screens */
-    font-size: 14px;   /* smaller text */
+    font-size: 12px;   /* smaller text */
     padding: 4px 8px;    /* smaller padding */
     white-space: nowrap; 
   }
