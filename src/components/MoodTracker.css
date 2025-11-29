@@ -147,6 +147,12 @@
   text-align: center;
 }
 
+@media (max-width: 400px) {
+  .checklist-item {
+    flex: 1 1 100%;
+  }
+}
+
 /*History Page Styles*/
 .history-page {
   font-family: 'Pixelify Sans', sans-serif;
