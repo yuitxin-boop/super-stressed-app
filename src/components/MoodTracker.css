@@ -147,11 +147,6 @@
   text-align: center;
 }
 
-@media (max-width: 400px) {
-  .checklist-item {
-    flex: 1 1 100%;
-  }
-}
 
 /*History Page Styles*/
 .history-page {
@@ -285,4 +280,34 @@
   display: block;                  
   margin-left: auto;
   margin-right: auto;
+}
+
+/* mobile responsiveness */
+@media (max-width: 480px) {
+  .mood-title {
+    font-size: 6vw;   /* smaller main title */
+  }
+
+  .mood-instruction {
+    font-size: 3.5vw; /* smaller subtitle text */
+  }
+
+  .back-button {
+    font-size: 0.9rem;   /* smaller button text */
+    padding: 6px 10px;   /* smaller button size */
+  }
+
+  .checklist-container {
+    gap: 6px; /* slightly smaller spacing on mobile */
+  }
+
+  .checklist-item {
+    flex: 1 1 100%;      /* full width items on small screens */
+    font-size: 0.9rem;   /* smaller text */
+    padding: 4px 8px;    /* smaller padding */
+  }
+
+  .checklist-item input[type="checkbox"] {
+    margin-right: 6px;   /* reduce space between checkbox and text */
+  }
 }
