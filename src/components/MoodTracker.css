@@ -286,7 +286,7 @@
 @media (max-width: 480px) {
   .mood-title {
     font-size: 30px;   /* smaller main title */
-    margin-top: 70px;
+    margin-top: 65px;
   }
 
   .mood-instruction {
@@ -304,7 +304,7 @@
 
   .checklist-item {
     flex: 1 1 100%;      /* full width items on small screens */
-    font-size: 8px;   /* smaller text */
+    font-size: 20px;   /* smaller text */
     padding: 4px 8px;    /* smaller padding */
   }
 
