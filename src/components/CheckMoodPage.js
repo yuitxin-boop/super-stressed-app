@@ -42,8 +42,8 @@ function CheckMoodPage() {
     
     const handleSubmit = () => {
         const newEntry = {
-            date: date || new Date().toLocaleDateString(),
-            mood: selectedMood || 'N/A',
+            date: date,
+            mood: selectedMood,
             note: moodText || '',
             moments: selectedMoments
         };
@@ -78,10 +78,6 @@ function CheckMoodPage() {
                     Submit Moments
                 </button>
 
-                <button className="back-button" onClick={() => navigate(-1)}>
-                    Back
-                </button>
-
                 {showOverlap && (
                     <div className="overlap-bg">
                         <div className="overlap-box">
@@ -100,4 +96,4 @@ function CheckMoodPage() {
     );
 }
 
-export default CheckMoodPage;;
+export default CheckMoodPage;

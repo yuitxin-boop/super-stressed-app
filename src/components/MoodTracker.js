@@ -16,17 +16,11 @@ function MoodTracker() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    // Create a new mood entry
-    const newEntry = {
-      date: formatteddate,
-      mood: selectedMood,
-      note: moodText
-    };
 
-    // Save to localStorage
-    const existingEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
-    existingEntries.push(newEntry);
-    localStorage.setItem('moodEntries', JSON.stringify(existingEntries));
+    if (!selectedMood) {
+      alert('Please select a mood before submitting');
+      return;
+    }
 
     // Navigate to CheckMoodPage and send state
     navigate('/checkmood', {
