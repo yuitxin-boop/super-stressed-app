@@ -8,12 +8,14 @@ import Pet from "./components/Pet";
 import Chatbox from "./components/Chatbox";
 import CheckMoodPage from "./components/CheckMoodPage";
 import MoodHistory from "./components/MoodHistory";
+import Login from "./components/Login";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/homepage" element={<Homepage />} />
         <Route path="/diary" element={<DigitalDiary />} />
         <Route path="/mood" element={<MoodTracker />} />
         <Route path="/pet" element={<Pet />} />

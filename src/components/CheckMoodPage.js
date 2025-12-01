@@ -85,7 +85,7 @@ function CheckMoodPage() {
                          <h1 className="overlap-title">Today's mood saved!</h1>
                          <h2 className="overlap-message">Have a sweet dream🌙!</h2>
 
-                         <button className="home-button" onClick={() => navigate ('/')}>
+                         <button className="home-button" onClick={() => navigate ('/homepage')}>
                              Back to Homepage
                          </button>
                         </div>

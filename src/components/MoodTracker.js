@@ -22,7 +22,6 @@ function MoodTracker() {
       return;
     }
 
-    // Navigate to CheckMoodPage and send state
     navigate('/checkmood', {
       state: {
         selectedMood: selectedMood,
@@ -36,7 +35,7 @@ function MoodTracker() {
     <div className="mood-tracker">
       <h1 className="mood-title">Mood Tracker</h1>
       <span className="history-link" onClick={() => navigate('/history')}>History</span>
-      <span className="homepage-link" onClick={() => navigate('/')}>Homepage</span>
+      <span className="homepage-link" onClick={() => navigate('/homepage')}>Homepage</span>
       <h2 className="mood-subtitle">{formatteddate}</h2>
       <h3 className="mood-instruction">How are you feeling today?</h3>
 

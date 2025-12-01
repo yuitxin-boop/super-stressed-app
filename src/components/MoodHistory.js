@@ -33,7 +33,7 @@ function MoodHistory() {
             </div>
           ))}
 
-        <button className="back-home-button" onClick={() => navigate('/')}>
+        <button className="back-home-button" onClick={() => navigate('/homepage')}>
            Back to Homepage
         </button>
 
