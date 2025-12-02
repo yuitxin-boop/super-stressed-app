@@ -2,15 +2,31 @@ import React from 'react';
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { saveUser } from "../api"; 
 
 export default function Login() {
     const navigate = useNavigate();
     const [name,setName] = useState('');
 
-    const handlesubmit = () => {
-        localStorage.setItem('name', name);
-        navigate('/homepage');
-    }
+    const handleSubmit = async () => { 
+        if (!name) {
+            alert("Please enter your name");
+            return;
+     }
+
+        try {
+            const res = await saveUser(name);
+
+            const userId = res.data.userId;
+            localStorage.setItem('name', name);
+            localStorage.setItem('userId', userId);
+
+            navigate('/homepage');
+        } catch (error) {
+            console.error("Error saving user:", error);
+            alert("Failed to save user.");
+        }
+    };
 
     return (
         <div className="gradient-bg">
@@ -22,7 +38,7 @@ export default function Login() {
                     <p>Enter your name</p>
                     <input type="text" placeholder="Username" value={name} onChange={(e) => setName(e.target.value)}/>
                 </div>
-                <button onClick = {handlesubmit}> Get started!</button>
+                <button onClick = {handleSubmit}> Get started!</button>
             </div>
 
         </div>

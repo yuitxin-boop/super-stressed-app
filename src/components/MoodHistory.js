@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import './MoodTracker.css'; // you can keep the same CSS or create MoodHistory.css
 import { useNavigate } from 'react-router-dom';
+import {getMoodEntries} from '../api';
 
 function MoodHistory() {
   const [historyEntries, setHistoryEntries] = useState([]);
   const navigate = useNavigate();
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
-    // Load all saved mood entries from localStorage
-    const entries = JSON.parse(localStorage.getItem('moodEntries')) || [];
-    setHistoryEntries(entries);
-  }, []);
+    if (!userId) return;
+
+    // Fetch mood entries from backend
+    const fetchHistory = async () => {
+      try {
+        const res = await getMoodEntries(userId);
+        setHistoryEntries(res.data);
+      } catch (err) {
+        console.error("Error fetching mood history:", err);
+      }
+    };
+
+    fetchHistory();
+  }, [userId]);
 
   return (
     <div className="history-page">

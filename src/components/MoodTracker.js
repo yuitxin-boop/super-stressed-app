@@ -1,34 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MoodTracker.css';
+import './circle-button.css';
 import happy from './emojis/happy.png';
 import angry from './emojis/angry.png';
 import nervous from './emojis/nervous.png';
 import cry from './emojis/cry.png';
 import sleepy from './emojis/sleepy.png';
+import { saveMood, getMoods } from '../api'; // make sure getMoods exists
 
 const today = new Date();
 const formatteddate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
 function MoodTracker() {
+  const navigate = useNavigate();
+  const userId = localStorage.getItem("userId");
+
+  // Store past moods for history page
+  const [moodHistory, setMoodHistory] = useState([]);
   const [moodText, setMoodText] = useState('');
   const [selectedMood, setSelectedMood] = useState('');
-  const navigate = useNavigate();
 
-  const handleSubmit = () => {
-
-    if (!selectedMood) {
-      alert('Please select a mood before submitting');
-      return;
+  // Fetch moods from backend
+  const fetchMoods = useCallback(async () => {
+    try {
+      const res = await getMoods(userId); // pass userId to get moods for this user
+      setMoodHistory(res.data);
+    } catch (err) {
+      console.error('Error fetching moods:', err);
     }
+  }, [userId]);
 
-    navigate('/checkmood', {
-      state: {
-        selectedMood: selectedMood,
-        moodText: moodText,
-        date: formatteddate
-      }
-    });
+  useEffect(() => {
+    if (userId) fetchMoods();
+  }, [userId, fetchMoods]);
+
+  const handleSubmit = async () => {
+    if (!selectedMood) return alert('Please select a mood before submitting');
+
+    try {
+      await saveMood({ userId, mood: selectedMood, note: moodText }); // send userId, mood, and note
+      setMoodText('');
+      setSelectedMood('');
+      fetchMoods(); // refresh mood history
+      navigate('/checkmood', { state: { selectedMood, moodText, date: formatteddate } });
+    } catch (err) {
+      console.error('Error saving mood:', err);
+      alert('Failed to save mood');
+    }
   };
 
   return (
@@ -92,8 +111,15 @@ function MoodTracker() {
       <button className="mood-submit" onClick={handleSubmit}>
         Submit Mood
       </button>
+
+      <button className ="circle-button" onClick={() => navigate("/chat")}>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffffff">
+          <path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/>
+        </svg>
+      </button>
     </div>
   );
 }
 
 export default MoodTracker;
+

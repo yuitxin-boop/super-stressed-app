@@ -1,5 +1,6 @@
 import React from 'react';
 import './MoodTracker.css'; // import the CSS
+import './circle-button.css';
 import { useNavigate,useLocation } from "react-router-dom";
 import { useState } from 'react';
 import Night from './emojis/Night.png';
@@ -40,19 +41,29 @@ function CheckMoodPage() {
         }
     };
     
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const newEntry = {
-            date: date,
+            userId: localStorage.getItem("userId"),
+            date,
             mood: selectedMood,
             note: moodText || '',
             moments: selectedMoments
         };
 
-        const existingEntries = JSON.parse(localStorage.getItem('moodEntries')) || [];
-        existingEntries.push(newEntry);
-        localStorage.setItem('moodEntries', JSON.stringify(existingEntries));
+        try {
+            const res = await fetch("http://localhost:5000/save-mood-entry", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newEntry),
+            });
+
+        if (!res.ok) throw new Error("Failed to save mood");
 
         setShowOverlap(true);
+    } catch (err) {
+        console.error(err);
+        alert("Error saving mood to backend");
+        }
     };
     
     return (
@@ -78,6 +89,10 @@ function CheckMoodPage() {
                     Submit Moments
                 </button>
 
+                <button className="back-button" onClick={() => navigate('/mood')}>
+                    Back
+                </button>
+
                 {showOverlap && (
                     <div className="overlap-bg">
                         <div className="overlap-box">
@@ -92,6 +107,10 @@ function CheckMoodPage() {
                     </div>
                 )}
             </div>
+
+            <button className ="circle-button" onClick={() => navigate("/chat")}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffffff"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
+            </button>
         </div>
     );
 }
