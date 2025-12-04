@@ -78,7 +78,7 @@ function CheckMoodPage() {
                      ))}
                 </div>
 
-                <button className="mood-submit" onClick={handleSubmit}>
+                <button className="moment-submit" onClick={handleSubmit}>
                     Submit Moments
                 </button>
 

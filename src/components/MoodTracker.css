@@ -23,6 +23,7 @@ body {
 }
 
 .mood-subtitle {
+  margin-top:0.5%;
   font-size: 18px;
   color: #555;
 }
@@ -39,7 +40,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
-  align-items: center;
 }
 
 .mood-items {
@@ -81,14 +81,14 @@ body {
   width: 90%;
   max-width: 400px;
   padding: 12px;
-  bottom: 20%;
-  position: fixed;
   border-radius: 10px;
   border: 1px solid #ff72c2;
   font-size: 16px;
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 5%;
+  margin-top: 3%;
 }
 
 .mood-submit {
@@ -100,11 +100,24 @@ body {
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  bottom: 5%;
-  position: fixed;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.moment-submit {
+  background-color: #e26ab6;
+  color: white;
+  font-size: 18px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4%;
 }
 
 .back-button {
@@ -113,8 +126,8 @@ body {
   left: 20px;
   background-color: #e26ab6 !important;
   color: white;
-  font-size: 15px !important;
-  padding: 6px 10px;
+  font-size: 17px !important;
+  padding: 4px 8px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -294,7 +307,7 @@ body {
 /* DESKTOP / LARGE SCREEN OVERRIDES */
 @media (min-width: 481px) {
   .mood-title {
-    font-size: 50px;
+    font-size: 40px;
     margin-top: 20px;
   }
 
