@@ -1,8 +1,9 @@
 import React from 'react';
-import '../App.css';
+import './Homepage.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { saveUser } from "../api"; 
+import bg from './emojis/background(3).png';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -29,9 +30,10 @@ export default function Login() {
     };
 
     return (
-        <div className="gradient-bg">
+        <div className="background-homepage">
+            <img src={bg} alt='Background'/>
             <div className="login-box">
-                <h1>Super-Stressed App</h1>
+                <h1>Miracle</h1>
                 <p>A little space for your thoughts.</p>
 
                 <div className="input-group">

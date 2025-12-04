@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './MoodTracker.css'; // you can keep the same CSS or create MoodHistory.css
+import './MoodTracker.css';
 import { useNavigate } from 'react-router-dom';
-import {getMoodEntries} from '../api';
+import { getMoodEntries } from '../api';
 
 function MoodHistory() {
   const [historyEntries, setHistoryEntries] = useState([]);
@@ -11,7 +11,6 @@ function MoodHistory() {
   useEffect(() => {
     if (!userId) return;
 
-    // Fetch mood entries from backend
     const fetchHistory = async () => {
       try {
         const res = await getMoodEntries(userId);
@@ -26,7 +25,7 @@ function MoodHistory() {
 
   return (
     <div className="history-page">
-      <h1 className="history-title ">Mood History</h1>
+      <h1 className="history-title">Mood History</h1>
 
       {historyEntries.length === 0 ? (
         <p>No entries yet.</p>
@@ -44,13 +43,12 @@ function MoodHistory() {
               )}
             </div>
           ))}
-
-        <button className="back-home-button" onClick={() => navigate('/homepage')}>
-           Back to Homepage
-        </button>
-
         </div>
       )}
+      
+      <button className="back-home-button" onClick={() => navigate('/homepage')}>
+        Back to Homepage
+      </button>
     </div>
   );
 }

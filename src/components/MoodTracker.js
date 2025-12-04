@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MoodTracker.css';
-import './circle-button.css';
-import happy from './emojis/happy.png';
-import angry from './emojis/angry.png';
-import nervous from './emojis/nervous.png';
-import cry from './emojis/cry.png';
-import sleepy from './emojis/sleepy.png';
+import joy from './emojis/Joy.png';
+import anger from './emojis/Angry (4).png';
+import anxiety from './emojis/Anxiety.png';
+import sadness from './emojis/Sad (1).png';
+import embarrassed from './emojis/Embarrassed.png';
 import { saveMood, getMoods } from '../api'; // make sure getMoods exists
 
 const today = new Date();
@@ -60,43 +59,43 @@ function MoodTracker() {
 
       <div className="mood-emoji">
         <div
-          className={`mood-items ${selectedMood === 'Happy' ? 'selected' : ''}`}
-          onClick={() => setSelectedMood('Happy')}
+          className={`mood-items ${selectedMood === 'Joy' ? 'selected' : ''}`}
+          onClick={() => setSelectedMood('Joy')}
         >
-          <img src={happy} alt="Happy" />
-          <p>Happy</p>
+          <img src={joy} alt="Joy" />
+          <p>Joy</p>
         </div>
 
         <div
-          className={`mood-items ${selectedMood === 'Angry' ? 'selected' : ''}`}
-          onClick={() => setSelectedMood('Angry')}
+          className={`mood-items ${selectedMood === 'Anger' ? 'selected' : ''}`}
+          onClick={() => setSelectedMood('Anger')}
         >
-          <img src={angry} alt="Angry" />
-          <p>Angry</p>
+          <img src={anger} alt="Anger" />
+          <p>Anger</p>
         </div>
 
         <div
-          className={`mood-items ${selectedMood === 'Nervous' ? 'selected' : ''}`}
-          onClick={() => setSelectedMood('Nervous')}
+          className={`mood-items ${selectedMood === 'Anxiety' ? 'selected' : ''}`}
+          onClick={() => setSelectedMood('Anxiety')}
         >
-          <img src={nervous} alt="Nervous" />
-          <p>Nervous</p>
+          <img src={anxiety} alt="Anxiety" />
+          <p>Anxiety</p>
         </div>
 
         <div
-          className={`mood-items ${selectedMood === 'Cry' ? 'selected' : ''}`}
-          onClick={() => setSelectedMood('Cry')}
+          className={`mood-items ${selectedMood === 'Sadness' ? 'selected' : ''}`}
+          onClick={() => setSelectedMood('Sadness')}
         >
-          <img src={cry} alt="Cry" />
-          <p>Sad</p>
+          <img src={sadness} alt="Sadness" />
+          <p>Sadness</p>
         </div>
 
         <div
-          className={`mood-items ${selectedMood === 'Sleepy' ? 'selected' : ''}`}
-          onClick={() => setSelectedMood('Sleepy')}
+          className={`mood-items ${selectedMood === 'Embarrassed' ? 'selected' : ''}`}
+          onClick={() => setSelectedMood('Embarrassed')}
         >
-          <img src={sleepy} alt="Sleepy" />
-          <p>Sleepy</p>
+          <img src={embarrassed} alt="Embarrassment" />
+          <p>Embarassment</p>
         </div>
       </div>
 
@@ -110,12 +109,6 @@ function MoodTracker() {
 
       <button className="mood-submit" onClick={handleSubmit}>
         Submit Mood
-      </button>
-
-      <button className ="circle-button" onClick={() => navigate("/chat")}>
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffffff">
-          <path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/>
-        </svg>
       </button>
     </div>
   );

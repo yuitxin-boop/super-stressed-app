@@ -1,7 +1,11 @@
+body {
+  margin: 0;
+  padding: 0;
+}
 
 .mood-tracker {
   font-family: 'Pixelify Sans', sans-serif;
-  background-color: #FEF8FE;
+  background:linear-gradient(90deg,#ffdaf8, #ffe6f7, #ffdaf8);
   min-height: 100vh;
   padding: 20px;
   display: flex;
@@ -25,7 +29,7 @@
 
 .mood-instruction {
   font-size: 20px;
-  color: #FF70BD;
+  color: #f95caf;
   margin: 10px 0 20px 0;
   text-align: center;
 }
@@ -35,6 +39,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 40px;
+  align-items: center;
 }
 
 .mood-items {
@@ -46,14 +51,15 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  justify-items: center;
 }
 
 .mood-items.selected {
-  background-color: #ffbfdf;
+  background-color: #ffb9e8;
 }
 
 .mood-items.selected p {
-  color: white;
+  color: black;
 }
 
 .mood-items img {
@@ -66,18 +72,19 @@
 .mood-items p {
   margin-top: 10px;
   font-family: 'Pixelify Sans', sans-serif;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
-  color: #FF69B4;
+  color:black;
 }
 
 .mood-input {
   width: 90%;
   max-width: 400px;
   padding: 12px;
-  margin-top: 20px;
+  bottom: 20%;
+  position: fixed;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ff72c2;
   font-size: 16px;
   display: block;
   margin-left: auto;
@@ -85,16 +92,16 @@
 }
 
 .mood-submit {
-  background-color: #B72883;
+  background-color: #e26ab6;
   color: white;
   font-size: 18px;
-  font-weight: bold;
   padding: 12px 25px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 40px;
+  bottom: 5%;
+  position: fixed;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -104,10 +111,9 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  background-color: gray;
+  background-color: #e26ab6 !important;
   color: white;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-size: 15px !important;
   padding: 6px 10px;
   border: none;
   border-radius: 10px;
@@ -154,7 +160,7 @@
 .history-page {
   font-family: 'Pixelify Sans', sans-serif;
   padding: 20px;
-  background-color: #FEF8FE;
+  background:linear-gradient(90deg,#f6a1ef, #ffcef0, #ffc7f5);
   min-height: 100vh;
 }
 
@@ -191,19 +197,20 @@
 }
 
 .back-home-button {
-  background-color: #B72883;
+  background-color: #e26ab6;
   color: white;
   font-size: 18px;
-  font-weight: bold;
   padding: 12px 25px;
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 20px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  bottom: 5%;
+  position: fixed;
+  left:50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 
 .history-link {

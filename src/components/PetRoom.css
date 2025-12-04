@@ -1,0 +1,355 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ead8fe; 
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.room{
+    width: 70%;
+    height: 77%;
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    background-position: center;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.cabinet{
+    width: 600px;
+    position: absolute;
+    bottom:-9%;
+    left: 26%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.bed{
+    width: 200px;
+    position: absolute;
+    bottom: 180px;
+    Right: 22%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.pet{
+    width: 400px;
+    position: absolute;
+    bottom: 50px;
+    left: 35%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    z-index: 3;
+}
+
+.dogstatus{
+    width: 600px;
+    height:40px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 4;
+}
+
+.statushappiness {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 60px;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.statushunger{
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 60px;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.statusenergy{
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  min-width: 60px;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.statushappiness img{
+    width: 24px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    align-items: center;
+}
+
+.statushunger img{
+    width: 30px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    align-items: center;
+}
+
+.statusenergy img{
+    width: 35px;
+    height: auto;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    align-items: center;
+}
+
+.statushappiness:hover,
+.statushunger:hover,
+.statusenergy:hover {
+    opacity: 0.8;
+}
+
+.popup-frame-happiness{
+    position:absolute;
+    top: 80%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    opacity:0.8;
+    border: 2px solid #333;
+    text-align: center;
+    z-index: 5;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+.popup-frame-hunger{
+    position:absolute;
+    top: 80%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    opacity:0.8;
+    border: 2px solid #333;
+    text-align: center;
+    z-index: 5;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+.popup-frame-energy{
+    position:absolute;
+    top: 80%;
+    left: 62%;
+    transform: translate(-50%, -50%);
+    width: 260px;
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    opacity:0.8;
+    border: 2px solid #333;
+    text-align: center;
+    z-index: 5;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+
+.popup-images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    z-index:6;
+}
+
+.popup-img {
+    width: 80px;
+    height: 60px;
+    object-fit: contain;
+    animation: pop 0.25s ease-out;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.popup-frame-message {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px;
+    padding: 15px;
+    background: white;
+    opacity: 0.9;
+    border-radius: 10px;
+    border: 2px solid #333;
+    text-align: center;
+    z-index: 10;
+}
+
+.popup-text{
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.popup-close{
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: #eee;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.petname-input {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    border: none;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background-color: rgb(241, 222, 171);
+    border: 3px solid #ffffff;
+    padding: 100px 50px;
+    z-index: 9999;
+}
+
+.petname-input input {
+    font-size: 18px;
+    background-color: white;
+    border: 2px solid #333;
+}
+
+.petname-input button {
+    padding: 8px 16px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.pet-name-text {
+    position: absolute;
+    top: 48%;
+    left: 47%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    font-weight: bold;
+    background: white;
+    opacity: 0.9;
+    border-radius: 10px;
+    color: #000000;
+    z-index: 9998;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: rgb(183, 183, 183);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.change-name-btn{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .room {
+        width: 100%;
+        height: auto;
+        bottom: 200px;
+    }
+
+    .cabinet {
+        width: 70%;
+        bottom: 90px;
+        left: 17%;
+    }
+
+    .bed {
+        width: 23%;
+        bottom: 230px;
+        right: 20%;
+        transform: translateX(0);
+    }
+
+    .pet {
+        width: 55%;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 140px;
+    }
+
+    .dogstatus {
+        width: 85%;
+        height: auto;
+        padding: 10px;
+        bottom: 85px;
+    }
+
+    .statushappiness,
+    .statushunger,
+    .statusenergy {
+        font-size: 14px;
+    }
+
+    .statushappiness img,
+    .statushunger img,
+    .statusenergy img {
+        width: 22px;
+    }
+
+    .popup-frame-happiness,
+    .popup-frame-hunger,
+    .popup-frame-energy {
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pet-name-text {
+        top: 340px;
+        left: 210px;
+        font-size: 120%;
+    }
+}
