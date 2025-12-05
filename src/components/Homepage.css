@@ -132,8 +132,7 @@ input::placeholder {
   margin-top: 10%;
   }
 
-  .background-homepage{
-    background-attachment: scroll; /* fallback */
+  .background-homepage{ 
     background-size: cover;
     background-position: center;
     min-height:100%;
