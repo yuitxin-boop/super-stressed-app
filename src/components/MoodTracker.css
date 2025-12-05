@@ -332,12 +332,12 @@ body {
   }
 
   .mood-title {
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 50px;
   }
 
   .mood-instruction {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .back-button {
@@ -349,7 +349,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
     column-gap: 8px;
-    margin-top:20px;
+    margin-top:12px;
   }
 
   .checklist-item {
