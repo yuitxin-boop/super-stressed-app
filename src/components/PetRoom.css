@@ -76,6 +76,7 @@
   justify-content: center;
   border: none !important;
   cursor: pointer;
+  outline:none;
 }
 
 .statushunger{
@@ -88,6 +89,7 @@
   justify-content: center;
   border: none !important;
   cursor: pointer;
+  outline:none;
 }
 
 .statusenergy{
@@ -100,6 +102,7 @@
   justify-content: center;
   border: none !important;
   cursor: pointer;
+  outline: none;
 }
 
 .statushappiness img{
@@ -108,7 +111,6 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
-    border:none !important;
 }
 
 .statushunger img{
@@ -117,7 +119,6 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
-    border: none !important;
 }
 
 .statusenergy img{
@@ -126,7 +127,6 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
-    border: none !important;
 }
 
 .statushappiness:hover,
