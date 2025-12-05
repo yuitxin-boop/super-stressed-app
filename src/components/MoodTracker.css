@@ -324,7 +324,6 @@ body {
   
   .mood-tracker {          
     margin-bottom: 0 !important;
-    padding-bottom: 80px;
     justify-content: flex-end;
     background-color: #ffdaf8;
     min-height: 100vh;
@@ -366,19 +365,10 @@ body {
   .moment-submit{
     margin-top: 22px;
     margin-bottom: 22px;
-    position:fixed;
-    bottom: 0;
-  }
-
-  .mood-submit{
-    position:fixed;
-    bottom:0;
   }
 
   .back-home-button{
     font-size:14px;
-    position:fixed;
-    bottom:0;
   }
 
   
