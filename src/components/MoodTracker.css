@@ -9,7 +9,7 @@ body {
   font-family: 'Pixelify Sans', sans-serif;
   background:linear-gradient(180deg,#ffdaf8, #ffe6f7, #ffdaf8);
   object-fit:cover;
-  min-height: 100vh;
+  min-height: 100svh;
   padding: 20px;
   display: flex;
   flex-direction: column;
