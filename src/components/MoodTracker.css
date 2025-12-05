@@ -15,9 +15,9 @@ body {
 }
 
 .mood-title {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 1px;
   text-align: center;
   color: #B72883;
@@ -155,7 +155,7 @@ body {
   margin-top: 20px;
   justify-content: center;
   margin: 0 auto;
-  column-gap: 6px;
+  column-gap: 2px;
 }
 
 .checklist-item input[type="checkbox"] {
@@ -307,11 +307,11 @@ body {
   margin-right: auto;
 }
 
-/* DESKTOP / LARGE SCREEN OVERRIDES */
-@media (min-width: 481px) {
+
+@media (max-width: 480px) {
   .mood-title {
-    font-size: 40px;
-    margin-top: 20px;
+    font-size: 30px;
+    margin-top: 50px;
   }
 
   .mood-instruction {
