@@ -1,13 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./PetRoom.css";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getPet, savePet } from '../api'; // make sure these are correctly imported
+import { getPet, savePet } from '../api';
 
-function PetRoom(){
-
+function PetRoom() {
     const userId = localStorage.getItem("userId");
-    const [popup, setPopup]=useState(null);
+    const [popup, setPopup] = useState(null);
     const [showMessage, setShowMessage] = useState(false);
     const [messagePopup, setMessagePopup] = useState(null);
     const navigate = useNavigate();
@@ -17,6 +15,7 @@ function PetRoom(){
         hunger: "Your pet enjoyed the food! 🍖",
         energy: "Your pet gained energy! 🔋"
     };
+
     const [happinessIndex, setHappinessIndex] = useState(0);
     const [hungerIndex, setHungerIndex] = useState(0);
     const [energyIndex, setEnergyIndex] = useState(0);
@@ -25,7 +24,7 @@ function PetRoom(){
     const hungerIcons = ["/hunger.png", "/hunger2.png", "/hunger3.png"];
     const energyIcons = ["/energy.png", "/energy2.png", "/energy3.png"];
 
-    const [petName,setPetName] = useState("");
+    const [petName, setPetName] = useState("");
     const [savedPetName, setSavedPetName] = useState("");
 
     const saveTime = () => {
@@ -33,7 +32,6 @@ function PetRoom(){
     };
 
     const savePetToBackend = () => {
-        const userId = localStorage.getItem("userId");
         if (!userId) return;
         savePet({
             userId,
@@ -62,6 +60,7 @@ function PetRoom(){
         savePetToBackend();
     };
 
+    // Load pet from localStorage or backend
     useEffect(() => {
         const savedName = localStorage.getItem("petName");
         const savedHappiness = localStorage.getItem("happinessIndex");
@@ -73,6 +72,7 @@ function PetRoom(){
         if (savedHappiness !== null) setHappinessIndex(Number(savedHappiness));
         if (savedHunger !== null) setHungerIndex(Number(savedHunger));
         if (savedEnergy !== null) setEnergyIndex(Number(savedEnergy));
+
         if (lastUpdate) {
             const hoursPassed = Math.floor((Date.now() - Number(lastUpdate)) / (1000 * 60 * 60));
 
@@ -82,8 +82,9 @@ function PetRoom(){
                 setEnergyIndex(prev => Math.min(prev + hoursPassed, energyIcons.length - 1));
             }
         }
-    },[]);
+    }, []);
 
+    // Fetch pet from backend (for new users or sync)
     useEffect(() => {
         if (!userId) return;
 
@@ -92,16 +93,20 @@ function PetRoom(){
                 const pet = res.data;
                 if (pet && pet.name) {
                     setSavedPetName(pet.name);
+                    setPetName(pet.name); // prefill input in case they want to edit
                     setHappinessIndex(pet.happiness ?? 0);
                     setHungerIndex(pet.hunger ?? 0);
                     setEnergyIndex(pet.energy ?? 0);
-                }else{
-                    setSavedPetName("");
+                    localStorage.setItem("petName", pet.name);
+                    localStorage.setItem("happinessIndex", pet.happiness ?? 0);
+                    localStorage.setItem("hungerIndex", pet.hunger ?? 0);
+                    localStorage.setItem("energyIndex", pet.energy ?? 0);
                 }
             })
             .catch(err => console.error(err));
     }, [userId]);
 
+    // Save changes to localStorage on update
     useEffect(() => {
         localStorage.setItem("happinessIndex", happinessIndex);
     }, [happinessIndex]);
@@ -114,10 +119,11 @@ function PetRoom(){
         localStorage.setItem("energyIndex", energyIndex);
     }, [energyIndex]);
 
+    // Timers to increase indices
     useEffect(() => {
         const happinessTimer = setInterval(() => {
-            setHappinessIndex(prevIndex => {
-              const newIndex = Math.min(prevIndex + 1, happinessIcons.length - 1);
+            setHappinessIndex(prev => {
+              const newIndex = Math.min(prev + 1, happinessIcons.length - 1);
               saveTime();
               savePetToBackend();
               return newIndex;
@@ -125,8 +131,8 @@ function PetRoom(){
         }, 20000);
 
         const hungerTimer = setInterval(() => {
-            setHungerIndex(prevIndex => {
-              const newIndex = Math.min(prevIndex + 1, hungerIcons.length - 1);
+            setHungerIndex(prev => {
+              const newIndex = Math.min(prev + 1, hungerIcons.length - 1);
               saveTime();
               savePetToBackend();
               return newIndex;
@@ -134,8 +140,8 @@ function PetRoom(){
         }, 20000);
 
         const energyTimer = setInterval(() => {
-            setEnergyIndex(prevIndex => {
-              const newIndex = Math.min(prevIndex + 1, energyIcons.length - 1);
+            setEnergyIndex(prev => {
+              const newIndex = Math.min(prev + 1, energyIcons.length - 1);
               saveTime();
               savePetToBackend();
               return newIndex;
@@ -153,32 +159,32 @@ function PetRoom(){
         setPopup(statusType);
         setShowMessage(false);
         setMessagePopup(null);
-    }
+    };
 
     const handleMessagePopup = (statusType) => {
         setPopup(null);
         setShowMessage(false);
         setMessagePopup(statusType);
-    }
+    };
 
     const closePopup = () => {
         setPopup(null);
         setShowMessage(false);
         setMessagePopup(null);
-    }
+    };
 
     useEffect(() => {
         if (messagePopup) {
             const timer = setTimeout(() => {
                 setMessagePopup(null);
             }, 2000);
-
             return () => clearTimeout(timer);
         }
     }, [messagePopup]);
 
-    return(
+    return (
         <div className="background">
+            {/* Pet name input only for new users or if no name saved */}
             {!savedPetName && (
                  <div className="petname-input">
                       <input
@@ -191,14 +197,14 @@ function PetRoom(){
                          onClick={async () => {
                             if (!petName.trim()) return;
                             setSavedPetName(petName);
+                            localStorage.setItem("petName", petName);
                             await savePet ({
                                 userId,
-                                name:petName,
-                                happiness:0,
-                                hunger:0,
-                                energy:0,
+                                name: petName,
+                                happiness: 0,
+                                hunger: 0,
+                                energy: 0,
                             });
-
                          }}
                      >
                         Save
@@ -222,46 +228,37 @@ function PetRoom(){
                 </div>
             )}
 
+            {/* Rest of your pet room UI */}
             <img className="pet" src="/pet.png" alt="pet" />
             <img className="room" src="/room.png" alt="room" />
             <img className="cabinet" src="/cabinet.png" alt="cabinet"/>
             <img className="bed" src="/bed.png" alt="bed" />
-           
+
+            {/* Status buttons */}
             <div className="dogstatus">
                 <div className="statushappiness">
-                    <button
-                         className="statushappiness"
-                         onClick={()=> handleStatusClick('happiness')}
-                         aria-label="Increase Pet Happiness"
-                    >
-                    <img src={happinessIcons[happinessIndex]} alt="happiness"/>
-                    <span>Happiness</span>
+                    <button className="statushappiness" onClick={()=> handleStatusClick('happiness')} aria-label="Increase Pet Happiness">
+                        <img src={happinessIcons[happinessIndex]} alt="happiness"/>
+                        <span>Happiness</span>
                     </button>
                 </div>
 
                 <div className="statushunger">
-                    <button
-                         className="statushunger"
-                         onClick={()=> handleStatusClick('hunger')}
-                         aria-label="Feed Pet"
-                    >
-                    <img src={hungerIcons[hungerIndex]} alt="hunger"/>
-                    <span>Hunger</span>
+                    <button className="statushunger" onClick={()=> handleStatusClick('hunger')} aria-label="Feed Pet">
+                        <img src={hungerIcons[hungerIndex]} alt="hunger"/>
+                        <span>Hunger</span>
                     </button>
                 </div>
 
                 <div className="statusenergy">
-                    <button
-                         className="statusenergy"
-                         onClick={()=> handleStatusClick('energy')}
-                         aria-label="Rest Pet"
-                    >
-                    <img src={energyIcons[energyIndex]} alt="energy"/>
-                    <span>Energy</span>
+                    <button className="statusenergy" onClick={()=> handleStatusClick('energy')} aria-label="Rest Pet">
+                        <img src={energyIcons[energyIndex]} alt="energy"/>
+                        <span>Energy</span>
                     </button>
                 </div>
             </div>
 
+            {/* Popups */}
             {popup === "happiness" && (
                 <div className="popup-frame-happiness">
                     {!showMessage && (
@@ -306,18 +303,15 @@ function PetRoom(){
             {messagePopup && (
                 <div className="popup-frame-message">
                     <p className="popup-text">{popupMessages[messagePopup]}</p>
-                    <button className="popup-close" onClick={() => setMessagePopup(null)}>
-                         Close
-                    </button>
+                    <button className="popup-close" onClick={() => setMessagePopup(null)}>Close</button>
                 </div>
             )}
 
-               <button className="back-button" onClick={() => navigate('/homepage')}>
-                    Back
-              </button>
+            <button className="back-button" onClick={() => navigate('/homepage')}>Back</button>
         </div>
     );
 }
 
 export default PetRoom;
+
 
