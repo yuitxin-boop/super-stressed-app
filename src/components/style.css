@@ -20,6 +20,7 @@ body {
     max-width: 1500px;
     margin: 0;
     background-color: #D7EBFF;
+    background-size: cover;
 }
 
 .circle-button {
