@@ -128,14 +128,13 @@ input::placeholder {
   width: 70%;
   padding: 30px;
   text-align: center;
-  margin: 0 auto; 
-  margin-top: 10%;
+  margin: 10vh auto 0 auto;
   }
 
   .background-homepage{ 
     background-size: cover;
     background-position: center;
-    min-height:100%;
+    min-height:100vh;
   }
 
 }
