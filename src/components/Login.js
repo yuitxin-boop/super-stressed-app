@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { saveUser } from "../api"; 
 import bg from './emojis/background(3).png';
 
-export default function Login() {
+function Login() {
     const navigate = useNavigate();
     const [name,setName] = useState('');
 
@@ -46,3 +46,5 @@ export default function Login() {
         </div>
     )
 }
+
+export default Login;

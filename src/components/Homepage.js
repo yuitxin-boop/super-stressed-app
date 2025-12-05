@@ -5,8 +5,7 @@ import {useEffect, useState} from 'react';
 import background from './emojis/background(2).png';
 import './ai.css';
 
-
-export default function Homepage() {
+function Homepage() {
   const navigate = useNavigate();
   const [name,setName] = useState('');
   useEffect(() => {
@@ -43,3 +42,5 @@ export default function Homepage() {
     </div>
   );
 }
+
+export default Homepage;
