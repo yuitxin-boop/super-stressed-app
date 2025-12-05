@@ -23,7 +23,7 @@ export default function Homepage() {
         
           <button onClick={() => navigate("/diary")}> 
             Digital Diary
-            <span className="button-subtext">Write your thoughts and feelings here.</span>
+            <span className="button-subtext">Write what's on your mind.</span>
           </button>
             
           <button onClick={() => navigate("/mood")}>
