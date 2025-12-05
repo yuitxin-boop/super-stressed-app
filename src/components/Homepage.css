@@ -144,8 +144,8 @@ input::placeholder {
   }
   
   .home-tittle button{
-    width:73%;
-    margin-top:10px;
+    width: 75%;
+    margin: 10px auto 0 auto;
   }
 
   .home-tittle p{
