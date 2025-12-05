@@ -321,13 +321,13 @@ body {
 @media (max-width: 480px) {
 
   body {
-    padding-bottom: env(safe-area-inset-bottom);
+    padding-bottom: 80px;
     min-height: 100svh; /* Smallest viewport height */
   }
   
   .mood-tracker {          
-    padding-bottom: calc(100px + env(safe-area-inset-bottom));
-    min-height: 100lvh;
+    padding-bottom: 180px;
+    min-height: calc(100vh + 80px);
   }
 
   .mood-title {
