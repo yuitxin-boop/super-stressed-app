@@ -17,16 +17,8 @@ body {
 }
 
 .wrapper{
-    width: 100%; 
-    min-height: 100vh; 
-    margin: 0 auto; 
     max-width: 1500px;
-    background-color: #D7EBFF; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: flex-start; 
-    box-sizing: border-box; 
+    margin: 0;
 }
 
 .circle-button {
