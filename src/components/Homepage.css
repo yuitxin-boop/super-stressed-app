@@ -131,6 +131,10 @@ input::placeholder {
   margin: 70vh auto 0 auto;
   }
 
+  .background-homepage{
+    height:100vh;
+  }
+
   .background-homepage img{
     position: absolute;
     top: 0;
