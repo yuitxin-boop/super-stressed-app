@@ -122,3 +122,13 @@ input::placeholder {
 
 }
 
+@media (max-width:480px) {
+
+  .login-box{
+  width: 70%;
+  padding: 30px;
+  text-align: center;
+
+}
+
+}
