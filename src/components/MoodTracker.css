@@ -314,14 +314,14 @@ body {
 
 
 @media (max-width: 480px) {
-  .mood-tracker{
-    min-height: 100svh;             
+  .mood-tracker{          
     width: 100%; 
     margin: 0;
     overflow: auto;
     background: linear-gradient(to bottom,#ffdaf8, #ffe6f7, #ffdaf8);
     padding-bottom: 100px;
     background-attachment: fixed;
+    bavkground-size: 100% auto;
   }
 
   .mood-title {
