@@ -61,7 +61,7 @@
     justify-content: space-evenly;
     border-radius: 10px;
     padding: 5px 10px;
-    border: 1px solid #ddd;
+    border: none;
     background-color: rgba(255, 255, 255, 0.4);
     z-index: 4;
 }
