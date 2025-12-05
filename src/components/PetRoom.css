@@ -76,7 +76,7 @@
   justify-content: center;
   border: none !important;
   cursor: pointer;
-  outline:none;
+  outline:none !important;
 }
 
 .statushunger{
@@ -89,7 +89,7 @@
   justify-content: center;
   border: none !important;
   cursor: pointer;
-  outline:none;
+  outline:none !important;
 }
 
 .statusenergy{
@@ -102,7 +102,7 @@
   justify-content: center;
   border: none !important;
   cursor: pointer;
-  outline: none;
+  outline: none !important;
 }
 
 .statushappiness img{
