@@ -144,6 +144,19 @@ input::placeholder {
   }
   
   .home-tittle button{
-    width:70%;
+    width:73%;
+    margin-top:10px;
+  }
+
+  .home-tittle p{
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  .home-tittle h2{
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 0;
   }
 }
