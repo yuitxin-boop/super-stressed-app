@@ -230,7 +230,7 @@ body {
   transition: all 0.3s ease;
   display: block;
   bottom: 5%;
-  position: static;
+  position: fixed;
   left:50%;
   transform: translateX(-50%);
   z-index: 1000;
@@ -337,7 +337,7 @@ body {
 
   .mood-title {
     font-size: 25px;
-    margin-top: 50px;
+    margin-top: 40px;
   }
 
   .mood-instruction {
@@ -369,6 +369,7 @@ body {
 
   .back-home-button{
     font-size:14px;
+
   }
 
   
