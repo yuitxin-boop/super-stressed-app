@@ -130,7 +130,8 @@ input::placeholder {
   text-align: center;
   margin: 0 auto; 
   margin-top: 1px;
-}
+  }
+
   .background-homepage{
     background-attachment: scroll; /* fallback */
     background-size: cover;
