@@ -108,6 +108,7 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
+    border:none;
 }
 
 .statushunger img{
@@ -116,6 +117,7 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
+    border: none;
 }
 
 .statusenergy img{
@@ -124,6 +126,7 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
+    border: none;
 }
 
 .statushappiness:hover,
