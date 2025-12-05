@@ -1,3 +1,7 @@
+button{
+    border: none !important;
+}
+
 .background {
     width: 100vw;
     height: 100vh;
@@ -113,6 +117,7 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
+    vertical-align: middle;
 }
 
 .statushunger img{
@@ -121,6 +126,7 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
+    vertical-align: middle;
 }
 
 .statusenergy img{
@@ -129,6 +135,7 @@
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     align-items: center;
+    vertical-align: middle;
 }
 
 .statushappiness:hover,

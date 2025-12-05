@@ -15,7 +15,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 0 !important;
+  height: auto;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .mood-title {
