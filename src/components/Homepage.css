@@ -128,10 +128,9 @@ input::placeholder {
   width: 70%;
   padding: 30px;
   text-align: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)
+  margin: 0 auto; 
+  margin-top: 30vh;
+
 
 }
 
