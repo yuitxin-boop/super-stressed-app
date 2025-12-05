@@ -81,7 +81,7 @@ body {
     .wrapper {
         position: relative; /* allows scrolling if content is taller */
         min-height: 100vh;  /* still covers full viewport */
-        width: 100%;
+        width: max-content;
     }
 }
 
