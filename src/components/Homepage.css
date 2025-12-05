@@ -132,11 +132,4 @@ input::placeholder {
   margin-top: 1px;
   }
 
-  .background-homepage{
-    background-attachment: scroll; /* fallback */
-    background-size: cover;
-    background-position: center;
-    min-height:100%;
-  }
-
 }
