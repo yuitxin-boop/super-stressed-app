@@ -144,13 +144,14 @@ input::placeholder {
   }
   
   .home-tittle button{
-    width: 75%;
+    width: 80%;
     margin: 10px auto 10px auto;
+    padding: 10px 20px;
   }
 
   .home-tittle p{
     text-align: center;
-    margin: 0 20px 30px 20px;
+    margin: 10px 20px 30px 20px;
   }
 
   .home-tittle h2{
