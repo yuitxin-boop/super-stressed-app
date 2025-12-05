@@ -14,7 +14,7 @@ body {
 
 .mood-tracker {
   font-family: 'Pixelify Sans', sans-serif;
-  background: transparent;
+  background: linear-gradient(to bottom, #ffdaf8, #ffe6f7, #ffdaf8) fixed;
   min-height: 100vh;
   width: 100%;
   padding: 20px;
@@ -187,7 +187,7 @@ body {
 .history-page {
   font-family: 'Pixelify Sans', sans-serif;
   padding: 20px;
-  background:linear-gradient(90deg,#f6a1ef, #ffcef0, #ffc7f5);
+  background:linear-gradient(to bottom, #ffdaf8, #ffe6f7, #ffdaf8) fixed;
   min-height: 100vh;
 }
 
