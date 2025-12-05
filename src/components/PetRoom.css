@@ -74,9 +74,9 @@
   font-weight: bold;
   min-width: 60px;
   justify-content: center;
-  border: none !important;
+  border: none;
   cursor: pointer;
-  outline:none !important;
+
 }
 
 .statushunger{
@@ -87,9 +87,9 @@
   font-weight: bold;
   min-width: 60px;
   justify-content: center;
-  border: none !important;
+  border: none;
   cursor: pointer;
-  outline:none !important;
+;
 }
 
 .statusenergy{
@@ -100,9 +100,8 @@
   font-weight: bold;
   min-width: 60px;
   justify-content: center;
-  border: none !important;
+  border: none;
   cursor: pointer;
-  outline: none !important;
 }
 
 .statushappiness img{
@@ -369,5 +368,5 @@
     border: 3px solid #ffffff;
     padding: 90px 20px;
     z-index: 9999;
-}
+    }
 }
