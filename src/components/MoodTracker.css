@@ -7,6 +7,9 @@ body {
   overscroll-behavior: none;
 }
 
+/* =====================
+   Mood Tracker Page
+======================= */
 .mood-tracker {
   font-family: 'Pixelify Sans', sans-serif;
   background: linear-gradient(to bottom, #ffdaf8, #ffe6f7, #ffdaf8);
@@ -61,7 +64,7 @@ body {
 }
 
 .mood-items.selected {
-  background-color: #ffb9e8;
+  background-color: #ffb9e8; /* Highlight selected mood */
 }
 
 .mood-items.selected p {
@@ -112,6 +115,9 @@ body {
   margin-bottom:20px;
 }
 
+/* =====================
+   Check Mood Page
+======================= */
 .moment-submit {
   background-color: #e26ab6;
   color: white;
@@ -168,7 +174,7 @@ body {
 .checklist-item input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  accent-color: #B72883;
+  accent-color: #B72883; /* Customize checkbox color */
   margin-right: 6px;
 }
 
@@ -179,7 +185,9 @@ body {
   text-align: center;
 }
 
-/* History */
+/* =====================
+   Mood History Page
+======================= */
 .history-page {
   font-family: 'Pixelify Sans', sans-serif;
   padding: 20px;
@@ -256,7 +264,9 @@ body {
   text-decoration: underline;
 }
 
-/* Overlap Notification Mobile */
+/* ============
+   Overlap
+============== */
 .overlap-bg {
   position: fixed;
   top: 0;
@@ -314,7 +324,9 @@ body {
   margin-right: auto;
 }
 
-
+/* ====================
+   Responsive Styles 
+====================== */
 @media (max-width: 480px) {
 
   body {

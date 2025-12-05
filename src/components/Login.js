@@ -1,27 +1,34 @@
 import React from 'react';
-import './Homepage.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { saveUser } from "../api"; 
 import bg from './emojis/background(3).png';
 
+import './Homepage.css';
+
 function Login() {
     const navigate = useNavigate();
+
+    //state to store user input
     const [name,setName] = useState('');
 
+    //handle login button click
     const handleSubmit = async () => { 
-        if (!name) {
+        if (!name.trim()) {
             alert("Please enter your name");
             return;
      }
 
         try {
+            //send name to backend and save user
             const res = await saveUser(name);
-
             const userId = res.data.userId;
+
+            //store user data locally so other pages can use it
             localStorage.setItem('name', name);
             localStorage.setItem('userId', userId);
 
+            //navigate to homepage after successful login
             navigate('/homepage');
         } catch (error) {
             console.error("Error saving user:", error);

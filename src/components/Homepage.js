@@ -1,13 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import './Homepage.css';
 import {useEffect, useState} from 'react';
 import background from './emojis/background(2).png';
+import './Homepage.css';
 import './ai.css';
 
 function Homepage() {
   const navigate = useNavigate();
+
+  // State to store the user's name retrieved from localStorage
   const [name,setName] = useState('');
+
+  /*
+    Retrieve the stored username from localStorage when the component mounts.
+    This ensures a personalized welcome message.
+  */
   useEffect(() => {
     const storedName = localStorage.getItem('name');
     setName(storedName);}, 
@@ -15,7 +22,11 @@ function Homepage() {
 
   return (
     <div className="background-homepage">
+
+      {/* Background image */}
       <img src={background} alt='Background'/>
+      
+      {/* Main content container */}
       <div className="home-tittle">
         <h2>Welcome, {name} !</h2>
         <p>A safe space to share your thoughts and feelings.</p>
@@ -36,6 +47,7 @@ function Homepage() {
           </button>
       </div>
 
+      {/* Floating chat button */}
       <button className ="circle-button" onClick={() => navigate("/chat")}>
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000ff"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg>
       </button>

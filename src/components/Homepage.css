@@ -1,4 +1,6 @@
-
+/* =========================
+   Container & Background
+========================= */
 .background-homepage{
   height: 100svh;             
   width: 100%;  
@@ -15,9 +17,14 @@
   height: 100%;
   object-fit: cover; /* fills container like background-cover */
   z-index: -1; 
-  image-rendering: pixelated;
+  image-rendering: pixelated; /* Keeps pixel art sharp */
 }
 
+/* ==============
+   Login Page 
+===============*/
+
+/*login box styling*/
 .login-box{
   background-color: white;
   width: 27%;
@@ -40,7 +47,6 @@
   font-size: 18px;
 }
 
-
 .login-box button{
   width: 100%;
   padding: 10px;
@@ -54,7 +60,8 @@
   
 }
 
-.input group{
+/*input styling*/
+.input-group{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +87,9 @@ input::placeholder {
   border-radius: 5px;
 }
 
-
+/* ============
+   Homepage 
+============ */
 .home-tittle p{
   color: #fa91bd;
   font-size: 20px;
@@ -122,6 +131,9 @@ input::placeholder {
 
 }
 
+/* =========================
+   Responsive Styling
+========================= */
 @media (max-width:480px) {
 
   .login-box{

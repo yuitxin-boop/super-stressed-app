@@ -6,8 +6,9 @@ import anger from './emojis/Angry (4).png';
 import anxiety from './emojis/Anxiety.png';
 import sadness from './emojis/Sad (1).png';
 import embarrassed from './emojis/Embarrassed.png';
-import { saveMood, getMoods } from '../api'; // make sure getMoods exists
+import { saveMood, getMoods } from '../api'; 
 
+//Get today's date in DD-MM-YYYY format
 const today = new Date();
 const formatteddate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
@@ -15,7 +16,7 @@ function MoodTracker() {
   const navigate = useNavigate();
   const userId = localStorage.getItem("userId");
 
-  // Store past moods for history page
+  // State to store mood history, current mood note, and selected mood
   const [moodHistory, setMoodHistory] = useState([]);
   const [moodText, setMoodText] = useState('');
   const [selectedMood, setSelectedMood] = useState('');
@@ -30,18 +31,20 @@ function MoodTracker() {
     }
   }, [userId]);
 
+  // Fetch moods when component mounts or userId changes
   useEffect(() => {
     if (userId) fetchMoods();
   }, [userId, fetchMoods]);
 
+  // Handle mood submission 
   const handleSubmit = async () => {
-    if (!selectedMood) return alert('Please select a mood before submitting');
+    if (!selectedMood) return alert('Please select a mood before submitting'); // check is a mood is selected
 
     try {
-      await saveMood({ userId, mood: selectedMood, note: moodText }); // send userId, mood, and note
+      await saveMood({ userId, mood: selectedMood, note: moodText }); // send userId, mood, and note to backend
       setMoodText('');
       setSelectedMood('');
-      fetchMoods(); // refresh mood history
+      fetchMoods(); // refresh mood history after submission
       navigate('/checkmood', { state: { selectedMood, moodText, date: formatteddate } });
     } catch (err) {
       console.error('Error saving mood:', err);
@@ -52,11 +55,16 @@ function MoodTracker() {
   return (
     <div className="mood-tracker">
       <h1 className="mood-title">Mood Tracker</h1>
+
+      {/* Navigation links */}
       <span className="history-link" onClick={() => navigate('/history')}>History</span>
       <span className="homepage-link" onClick={() => navigate('/homepage')}>Homepage</span>
+
+      {/* Current date */}
       <h2 className="mood-subtitle">{formatteddate}</h2>
       <h3 className="mood-instruction">How are you feeling today?</h3>
 
+      {/* Mood emoji selection */}
       <div className="mood-emoji">
         <div
           className={`mood-items ${selectedMood === 'Joy' ? 'selected' : ''}`}
@@ -99,6 +107,7 @@ function MoodTracker() {
         </div>
       </div>
 
+      {/* Optional note input */}
       <input
         type="text"
         placeholder="Add some note..."
@@ -106,7 +115,8 @@ function MoodTracker() {
         onChange={(e) => setMoodText(e.target.value)}
         className="mood-input"
       />
-
+      
+      {/* Submit button */}
       <button className="mood-submit" onClick={handleSubmit}>
         Submit Mood
       </button>

@@ -4,17 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import { getMoodEntries } from '../api';
 
 function MoodHistory() {
-  const [historyEntries, setHistoryEntries] = useState([]);
+  const [historyEntries, setHistoryEntries] = useState([]); // State to store mood history entries
   const navigate = useNavigate();
-  const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem('userId'); // Get current user ID from localStorage
 
+  // Fetch mood history from backend when component mounts
   useEffect(() => {
-    if (!userId) return;
+    if (!userId) return; // Exit if no userId
 
     const fetchHistory = async () => {
       try {
-        const res = await getMoodEntries(userId);
-        setHistoryEntries(res.data);
+        const res = await getMoodEntries(userId); // Get mood entries for this user
+        setHistoryEntries(res.data);              // Store fetched entries in state
       } catch (err) {
         console.error("Error fetching mood history:", err);
       }
@@ -27,8 +28,9 @@ function MoodHistory() {
     <div className="history-page">
       <h1 className="history-title">Mood History</h1>
 
+      {/* Check if there are any entries */}
       {historyEntries.length === 0 ? (
-        <p>No entries yet.</p>
+        <p>No entries yet.</p>    // Message when there are no entries
       ) : (
         <div className="entries-container">
           {historyEntries.map((entry, index) => (
@@ -46,6 +48,7 @@ function MoodHistory() {
         </div>
       )}
       
+      {/* Back to homepage button */}
       <button className="back-home-button" onClick={() => navigate('/homepage')}>
         Back to Homepage
       </button>
