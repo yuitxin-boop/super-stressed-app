@@ -125,15 +125,17 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
-  background-color: #e26ab6 !important;
+  background-color: #e26ab6 ;
   color: white;
-  font-size: 17px !important;
+  font-size: 10px ;
   padding: 4px 8px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+/*Checklist*/
 
 .checklist-item {
   font-size: 5vw;
@@ -148,7 +150,7 @@ body {
 
 .checklist-container {
   display: grid;
-  grid-template-columns: 1fr; /* single column on mobile */
+  grid-template-columns: (2, 1fr); 
   gap: 6px;
   margin-top: 20px;
   justify-content: center;
@@ -170,7 +172,7 @@ body {
   text-align: center;
 }
 
-/* History Page Mobile */
+/* History */
 .history-page {
   font-family: 'Pixelify Sans', sans-serif;
   padding: 20px;
