@@ -1,11 +1,15 @@
 import React from 'react';
 import './MoodTracker.css'; // import the CSS
 import { useNavigate,useLocation } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Night from './emojis/Night.png';
 import {saveMoodEntry} from '../api';
 
 function CheckMoodPage() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const navigate = useNavigate();
     const location = useLocation();
     const { selectedMood, moodText, date } = location.state || {};
