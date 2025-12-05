@@ -134,6 +134,7 @@ input::placeholder {
   .background-homepage{ 
     background-size: cover;
     background-position: center;
+    background-attachment: scroll;
     min-height:100vh;
   }
 
