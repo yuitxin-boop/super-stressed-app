@@ -32,7 +32,7 @@ export default function Homepage() {
           </button>
 
           <button onClick={() => navigate("/pet")}>
-            Pet Adoption
+            Virtual Pet
             <span className="button-subtext">Care for your visual companion.</span>
           </button>
       </div>
