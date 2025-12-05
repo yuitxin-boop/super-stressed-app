@@ -142,5 +142,8 @@ input::placeholder {
     background-attachment: scroll;
     min-height:100vh;
   }
-
+  
+  .home-tittle button{
+    width:50%;
+  }
 }
