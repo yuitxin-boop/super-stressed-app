@@ -198,14 +198,20 @@ function PetRoom() {
                             if (!petName.trim()) return;
                             setSavedPetName(petName);
                             localStorage.setItem("petName", petName);
-                            await savePet ({
-                                userId,
-                                name: petName,
-                                happiness: 0,
-                                hunger: 0,
-                                energy: 0,
-                            });
+                            try{
+                                await savePet ({
+                                    userId,
+                                    name: petName,
+                                    happiness: happinessIndex,
+                                    hunger: hungerIndex,
+                                    energy: energyIndex,
+                                });
+                            } catch (err){
+                                console.error("Failed to save pet name:",err);
+                            }
+                            setPetName("");
                          }}
+
                      >
                         Save
                      </button>
@@ -217,7 +223,6 @@ function PetRoom() {
                     {savedPetName}
                     <button
                         onClick={() => {
-                            localStorage.removeItem("petName");
                             setSavedPetName("");
                             setPetName("");
                         }}
@@ -313,5 +318,4 @@ function PetRoom() {
 }
 
 export default PetRoom;
-
 
